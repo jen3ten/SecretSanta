@@ -11,20 +11,16 @@ namespace SecretSantaConsoleAppV1
         static void Main(string[] args)
         {
             //Initialize variables
-            //SecretSanta secretSanta;
             int nameCounter = 0;
             string secretSantaName;
-            //List<SecretSanta> listOfSecretSantas = new List<SecretSanta>();
             Dictionary<string, int> secretSantaFamilyGroup = new Dictionary<string, int>();
             List<string> nameSlips = new List<string>();
             List<string> secretSantaMatchup = new List<string>();
             Random randomNumber = new Random();
-            //int numChosen;
             int randomNum;
             string randomName;
             bool repeatNameDraw;
             int secretSantaIndex;
-
 
             //User instructions
             Console.WriteLine();
@@ -34,15 +30,12 @@ namespace SecretSantaConsoleAppV1
             do
             {
                 nameCounter++;
-                //secretSanta = new SecretSanta();
                 Console.Write($"Secret Santa #{nameCounter}: ");
                 secretSantaName = Console.ReadLine();
 
                 //Add names to lists, or end entry
                 if (secretSantaName.ToLower() != "end")
                 {
-                    //secretSanta.Name = nameEntry;
-                    //listOfSecretSantas.Add(secretSanta);
                     secretSantaFamilyGroup.Add(secretSantaName, 1);
                     nameSlips.Add(secretSantaName);
                 }
@@ -52,7 +45,6 @@ namespace SecretSantaConsoleAppV1
                 }
             } while (secretSantaName.ToLower() != "end");
 
-            //
             do
             {
                 repeatNameDraw = false;
@@ -69,8 +61,6 @@ namespace SecretSantaConsoleAppV1
                         } while (secretSanta.Key == randomName);
                         secretSantaMatchup.Add(randomName);
                         nameSlips.Remove(randomName);
-                        //Console.WriteLine($"{secretSanta.Key} has {secretSantaMatchup[secretSantaIndex]}");
-                        //Console.WriteLine($"{secretSanta.Key} has {randomName}");
                         secretSantaIndex++;
                     }
                     //check last slip to make sure it doesn't match secret santa
@@ -89,7 +79,6 @@ namespace SecretSantaConsoleAppV1
                         }
                         else
                         {
-                            //Console.WriteLine($"{secretSanta.Key} has {nameSlips[0]}");
                             secretSantaMatchup.Add(nameSlips[0]);
                         }
                     }
@@ -103,56 +92,6 @@ namespace SecretSantaConsoleAppV1
                 Console.WriteLine($"{secretSanta.Key} has {secretSantaMatchup[secretSantaIndex]}");
                 secretSantaIndex++;
             }
-
-            //for (int i = 0; i < listOfSecretSantas.Count; i++)
-            //{
-            //    if (i < listOfSecretSantas.Count - 1)
-            //    {
-            //        Console.Write(listOfSecretSantas[i].Name + ", ");
-            //    }
-            //    else
-            //    {
-            //        Console.WriteLine(listOfSecretSantas[i].Name + "");
-            //    }
-            //}
-
-            //for (int i = 0; i < listOfSecretSantas.Count; i++)
-            //{
-            //    int numberTries = 0;
-            //    do
-            //    {
-            //        numChosen = randomNumber.Next(0, listOfSecretSantas.Count);
-            //        randomName = listOfSecretSantas[numChosen].Name;
-            //        Console.WriteLine(randomName);
-            //        numberTries++;
-            //    } while ((randomName == listOfSecretSantas[i].Name || listOfSecretSantas[numChosen].WasChosen) && numberTries < 10);
-
-            //    if(numberTries < 10)
-            //    {
-            //        listOfSecretSantas[i].BuyingFor = randomName;
-            //        listOfSecretSantas[numChosen].WasChosen = true;
-            //    }
-
-            //    Console.WriteLine(listOfSecretSantas[i].Name + " has " + listOfSecretSantas[i].BuyingFor);
-            //}
-
         }
     }
-
-    //internal class SecretSanta
-    //{
-    //    internal SecretSanta()
-    //    {
-    //        this.Name = "";
-    //        this.GroupNum = 0;
-    //        this.WasChosen = false;
-    //        this.BuyingFor = "";
-    //    }
-
-    //    internal string Name { get; set; }
-    //    internal int GroupNum { get; set; }
-    //    internal bool WasChosen { get; set; }
-    //    internal string BuyingFor { get; set; }
-
-    //}
 }
